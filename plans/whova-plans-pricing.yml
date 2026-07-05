@@ -1,0 +1,80 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Whova
+providerId: whova
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Events
+- Event Management
+- Registration
+- Plans
+description: >-
+  Whova does not publish list pricing. Cost is quote-based and determined per
+  event by size, format (in-person, virtual, or hybrid), duration, and the
+  bundle of modules selected (event app, registration/ticketing, marketing,
+  etc.); organizers request a price quote and are assigned a representative.
+  Whova offers a free ticketing plan for free events (no charge to the
+  organizer). There is no separate, published API plan or API pricing - the only
+  programmatic access is the Zapier CRM integration, which carries no documented
+  standalone API fee and is available to paying organizers within the platform.
+notes: >-
+  All figures are contact-sales; Whova publishes no rate card. Third-party
+  reports note per-event fees, module add-ons (e.g., extra document-upload
+  capacity), and price increases at renewal. Verify current terms directly with
+  Whova sales during reconciliation.
+sources:
+- https://whova.com/pricing/
+- https://whova.com/faq/who-pay-for-whova-how-much-it-cost/
+- https://zapier.com/apps/whova/integrations
+plans:
+- id: whova-free-ticketing
+  name: Free Ticketing (Free Events)
+  type: free
+  description: >-
+    For free events, Whova does not charge the organizer for ticketing/
+    registration. Programmatic access to attendee/order/registrant data is via
+    the Zapier CRM integration where available.
+  entries:
+  - label: Free Event Registration
+    name: free_event_registration
+    type: flat
+    metric: event
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free for free events
+    userMultiplied: false
+  elements:
+  - name: Event App
+  - name: Registration and Ticketing
+  - name: Zapier CRM Integration
+- id: whova-quote
+  name: Per-Event Quote
+  type: enterprise
+  description: >-
+    Paid per-event pricing for the all-in-one platform, quoted by Whova based on
+    event size, format, duration, and selected modules. No published rates.
+  entries:
+  - label: Per-Event Quote
+    name: per_event_quote
+    type: flat
+    metric: event
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales (request a price quote)
+    userMultiplied: false
+  elements:
+  - name: Event App
+  - name: Registration and Ticketing
+  - name: Agenda and Speaker Management
+  - name: Exhibitor and Sponsor Tools
+  - name: Zapier CRM Integration
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

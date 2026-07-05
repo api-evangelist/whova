@@ -1,0 +1,94 @@
+aid: whova
+name: Whova
+review:
+  question: Does Whova expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-05'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Whova does not publish any developer API -
+    public, partner, or otherwise - with a documented transport to model. Whova
+    has no developer portal, no REST reference, no OpenAPI definition, and no
+    SDKs. Its only programmatic surface for organizers is a Zapier-mediated CRM
+    integration whose triggers ("Get Attendees", "Get Orders", "Get Registrants")
+    are polled/event-notification triggers surfaced inside Zapier, not a
+    Whova-hosted server-push transport. There is no WebSocket (ws:// or wss://)
+    or SSE endpoint published anywhere on Whova's own surface to describe.
+findings:
+  summary: |
+    Whova does not publish a documented public WebSocket API - nor, in fact, an
+    open self-serve developer API of any kind. Whova is an all-in-one event
+    management platform (mobile event app, registration/ticketing, agenda and
+    speaker management, exhibitor/sponsor tools). Repeated searches for a Whova
+    developer portal (api.whova.com, developer.whova.com, whova.com/developer)
+    returned nothing. Third-party aggregator pages (apitracker.io, apiorb.com)
+    that list "Whova API / SDKs" contain only auto-generated boilerplate with no
+    real endpoints, auth, or reference. The only genuine programmatic access
+    Whova offers organizers is a partner CRM integration through Zapier, reached
+    from the organizer dashboard under Attendees > Integrations > CRM Integration.
+    That connector exposes three triggers - Get Attendees (attendee-list change),
+    Get Orders (order-list change), Get Registrants (registration form
+    submission) - and one action, Create or Update Attendee. Whova also offers
+    prebuilt connectors to Eventbrite, Cvent, Constant Contact, RegFox,
+    OpenReview, ConfTool, SharePoint/OneDrive, MailChimp, Wild Apricot, and
+    Google Drive. None of these expose a Whova-hosted REST base URL, auth scheme,
+    or WebSocket. No realtime, bidirectional, or streaming WebSocket endpoint is
+    documented.
+  accessModel: |
+    Gated / partner-mediated. There is no public API key self-service and no
+    published API reference. Programmatic access is available to event organizers
+    only, via the in-dashboard Zapier CRM integration (authenticated by signing
+    into the Whova account through Zapier). Pricing is quote-based/contact-sales
+    (per event); Whova does not publish rates.
+  transports:
+    - protocol: Zapier Integration
+      scheme: https
+      documented: true
+      note: >-
+        Partner integration via Zapier. Triggers - Get Attendees, Get Orders, Get
+        Registrants; action - Create or Update Attendee. Whova-hosted endpoints,
+        base URL, and auth are not publicly documented.
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: No public Whova REST API reference, base URL, or OpenAPI definition exists.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere on Whova's surface as of the review date.
+  endpointsConfirmedRest: []
+  endpointsModeled:
+    - Get Attendees (Zapier trigger - attendee-list change)
+    - Create or Update Attendee (Zapier action - name, email, title, company, location, ticket type, attendance mode)
+    - Get Orders (Zapier trigger - order-list change)
+    - Get Registrants (Zapier trigger - registration form submission)
+sources:
+  - url: https://whova.com/
+    type: Website
+    note: Product marketing; no developer/API section.
+  - url: https://zapier.com/apps/whova/integrations
+    type: Integrations
+    note: The one genuine programmatic surface - triggers and one action; no Whova base URL exposed.
+  - url: https://whova.zendesk.com/hc/en-us/articles/28473285536795-How-do-I-integrate-CRM-via-Zapier
+    type: Documentation
+    note: Organizer help for the Attendees > Integrations > CRM Integration (Zapier) path.
+  - url: https://whova.com/blog/whova-integration-eventbrite-cvent-constant-contact-regfox-zapier/
+    type: Documentation
+    note: Prebuilt connectors (Eventbrite, Cvent, Constant Contact, RegFox, Zapier); no open API mentioned.
+  - url: https://apitracker.io/a/whova
+    type: ThirdParty
+    note: Aggregator page - all API/SDK/auth fields empty; auto-generated, not authoritative.
+  - url: https://whova.com/pricing/
+    type: Pricing
+    note: Quote-based/contact-sales; no published rates and no API pricing.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists, and Whova publishes no open developer
+    API to model. The apis.yml entry documents Whova honestly as a gated
+    provider: four logical APIs (Attendees, Registration/Orders, Agenda/Sessions,
+    Exhibitors) are marked as modeled (endpointsModeled) and anchored to the real
+    Zapier CRM integration and help docs rather than to a non-existent public API
+    reference. No AsyncAPI, OpenAPI, or collections were fabricated.
