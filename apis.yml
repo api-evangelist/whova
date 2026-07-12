@@ -136,6 +136,8 @@ apis:
   - url: https://whova.zendesk.com/hc/en-us/articles/23362114823323-In-what-ways-can-attendees-engage-with-exhibitors-in-the-Whova-app
     type: HelpCenter
 common:
+- type: DomainSecurity
+  url: security/whova-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/whova
 - type: Website
