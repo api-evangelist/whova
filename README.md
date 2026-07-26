@@ -48,17 +48,7 @@ Modeled view of Whova's registration/order surface: Get Orders and Get Registran
 
 - **Reference:** [Zapier — Whova Integrations](https://zapier.com/apps/whova/integrations)
 
-### Whova Agenda and Sessions API (Modeled)
 
-Modeled view of Whova's agenda/session surface. Whova imports sessions, speakers, and abstracts from spreadsheets and partner systems (OpenReview, ConfTool) but exposes no documented public API for agenda data.
-
-- **Reference:** [OpenReview Integration](https://whova.com/blog/openreview-integration/)
-
-### Whova Exhibitors and Sponsors API (Modeled)
-
-Modeled view of Whova's exhibitor/sponsor surface (booths, sponsored sessions, lead retrieval via QR/stamp scanning, virtual booths). No documented public API for exhibitor or lead data.
-
-- **Reference:** [Whova App Exhibitor Guide](https://whova.com/pages/whova-app-exhibitor-guide/)
 
 ## Common Properties
 

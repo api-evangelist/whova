@@ -19,137 +19,106 @@ description: >-
   surface (see endpointsModeled) - they are not sourced from a public Whova API
   reference, and no base URL, auth scheme, or endpoint paths are published by
   Whova.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+    - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/whova.png
 tags:
-- Events
-- Event Management
-- Event App
-- Registration
-- Conferences
-- Attendees
-- Exhibitors
-- Gated API
-- Modeled
+  - Events
+  - Event Management
+  - Event App
+  - Registration
+  - Conferences
+  - Attendees
+  - Exhibitors
+  - Gated API
+  - Modeled
 created: '2026-07-05'
-modified: '2026-07-05'
+modified: '2026-07-25'
 specificationVersion: '0.19'
 apis:
-- aid: whova:whova-attendees-api
-  name: Whova Attendees API (Modeled)
-  tags:
-  - Attendees
-  - Networking
-  - CRM
-  - Modeled
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://zapier.com/apps/whova/integrations
-  description: >-
-    Modeled view of Whova's attendee integration surface. Whova exposes attendee
-    data to organizers only through the Zapier CRM integration - a Get Attendees
-    trigger that fires when the attendee list changes and a Create or Update
-    Attendee action (name, email, title, company, location, ticket type,
-    attendance mode). No public REST endpoints, base URL, or auth scheme are
-    documented by Whova; the operations below are honestly modeled from the
-    Zapier connector, not sourced from an API reference.
-  endpointsModeled:
-  - GET  /events/{event_id}/attendees            (modeled - list attendees; surfaced via Zapier "Get Attendees" trigger)
-  - POST /events/{event_id}/attendees            (modeled - create attendee; Zapier "Create or Update Attendee" action)
-  - PATCH /events/{event_id}/attendees/{id}       (modeled - update attendee; Zapier upsert action)
-  properties:
-  - url: https://zapier.com/apps/whova/integrations
-    type: Integrations
-  - url: https://whova.zendesk.com/hc/en-us/articles/28473285536795-How-do-I-integrate-CRM-via-Zapier
-    type: Documentation
-  - url: https://whova.zendesk.com/hc/en-us/categories/200398767-Event-Attendees
-    type: HelpCenter
-- aid: whova:whova-registration-api
-  name: Whova Registration and Orders API (Modeled)
-  tags:
-  - Registration
-  - Orders
-  - Ticketing
-  - Modeled
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://zapier.com/apps/whova/integrations
-  description: >-
-    Modeled view of Whova's registration and order surface. The Zapier
-    integration provides a Get Orders trigger (fires on order-list changes) and a
-    Get Registrants trigger (fires when a registrant submits their registration
-    question form responses). Whova publishes no REST endpoints for registration;
-    these operations are honestly modeled from the Zapier connector and prebuilt
-    ticketing integrations (Eventbrite, Cvent, RegFox).
-  endpointsModeled:
-  - GET /events/{event_id}/orders                (modeled - list orders; Zapier "Get Orders" trigger)
-  - GET /events/{event_id}/registrants           (modeled - list registrant form responses; Zapier "Get Registrants" trigger)
-  properties:
-  - url: https://zapier.com/apps/whova/integrations
-    type: Integrations
-  - url: https://whova.com/blog/whova-integration-eventbrite-cvent-constant-contact-regfox-zapier/
-    type: Documentation
-  - url: https://whova.com/blog/registration-integrates-with-platform/
-    type: Documentation
-- aid: whova:whova-agenda-api
-  name: Whova Agenda and Sessions API (Modeled)
-  tags:
-  - Sessions
-  - Agenda
-  - Speakers
-  - Modeled
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://whova.com/blog/openreview-integration/
-  description: >-
-    Modeled view of Whova's agenda/session surface. Whova imports sessions,
-    speakers, and abstracts from spreadsheets, its own templates, and partner
-    systems such as OpenReview and ConfTool, but exposes NO documented public API
-    for reading or writing agenda data. The operations below are honestly modeled
-    from Whova's import/agenda tooling, not sourced from an API reference.
-  endpointsModeled:
-  - GET /events/{event_id}/sessions              (modeled - list sessions; no public endpoint documented)
-  - GET /events/{event_id}/sessions/{id}         (modeled - session detail; no public endpoint documented)
-  - GET /events/{event_id}/speakers              (modeled - list speakers; no public endpoint documented)
-  properties:
-  - url: https://whova.com/blog/openreview-integration/
-    type: Documentation
-  - url: https://www.conftool.net/en/configuration-documentation/whova.html
-    type: Integrations
-- aid: whova:whova-exhibitors-api
-  name: Whova Exhibitors and Sponsors API (Modeled)
-  tags:
-  - Exhibitors
-  - Sponsors
-  - Lead Retrieval
-  - Modeled
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://whova.com/pages/whova-app-exhibitor-guide/
-  description: >-
-    Modeled view of Whova's exhibitor/sponsor surface. Whova manages exhibitor
-    booths, sponsored sessions, promotional offers, lead retrieval (QR/stamp
-    scanning), and virtual booths inside the app, but publishes NO documented
-    public API for exhibitor or lead data. The operations below are honestly
-    modeled from Whova's exhibitor tooling, not sourced from an API reference.
-  endpointsModeled:
-  - GET /events/{event_id}/exhibitors            (modeled - list exhibitors/booths; no public endpoint documented)
-  - GET /events/{event_id}/exhibitors/{id}/leads (modeled - exhibitor lead retrieval; no public endpoint documented)
-  properties:
-  - url: https://whova.com/pages/whova-app-exhibitor-guide/
-    type: Documentation
-  - url: https://whova.zendesk.com/hc/en-us/articles/23362114823323-In-what-ways-can-attendees-engage-with-exhibitors-in-the-Whova-app
-    type: HelpCenter
+  - aid: whova:whova-attendees-api
+    name: Whova Attendees API (Modeled)
+    tags:
+      - Attendees
+      - Networking
+      - CRM
+      - Modeled
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+    humanURL: https://zapier.com/apps/whova/integrations
+    description: >-
+      Modeled view of Whova's attendee integration surface. Whova exposes attendee
+      data to organizers only through the Zapier CRM integration - a Get Attendees
+      trigger that fires when the attendee list changes and a Create or Update
+      Attendee action (name, email, title, company, location, ticket type,
+      attendance mode). No public REST endpoints, base URL, or auth scheme are
+      documented by Whova; the operations below are honestly modeled from the
+      Zapier connector, not sourced from an API reference.
+    endpointsModeled:
+      - GET  /events/{event_id}/attendees            (modeled - list attendees; surfaced via Zapier "Get Attendees" trigger)
+      - POST /events/{event_id}/attendees            (modeled - create attendee; Zapier "Create or Update Attendee" action)
+      - PATCH /events/{event_id}/attendees/{id}       (modeled - update attendee; Zapier upsert action)
+    properties:
+      - url: https://zapier.com/apps/whova/integrations
+        type: Integrations
+      - url: https://whova.zendesk.com/hc/en-us/articles/28473285536795-How-do-I-integrate-CRM-via-Zapier
+        type: Documentation
+      - url: https://whova.zendesk.com/hc/en-us/categories/200398767-Event-Attendees
+        type: HelpCenter
+  - aid: whova:whova-registration-api
+    name: Whova Registration and Orders API (Modeled)
+    tags:
+      - Registration
+      - Orders
+      - Ticketing
+      - Modeled
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+    humanURL: https://zapier.com/apps/whova/integrations
+    description: >-
+      Modeled view of Whova's registration and order surface. The Zapier
+      integration provides a Get Orders trigger (fires on order-list changes) and a
+      Get Registrants trigger (fires when a registrant submits their registration
+      question form responses). Whova publishes no REST endpoints for registration;
+      these operations are honestly modeled from the Zapier connector and prebuilt
+      ticketing integrations (Eventbrite, Cvent, RegFox).
+    endpointsModeled:
+      - GET /events/{event_id}/orders                (modeled - list orders; Zapier "Get Orders" trigger)
+      - GET /events/{event_id}/registrants           (modeled - list registrant form responses; Zapier "Get Registrants" trigger)
+    properties:
+      - url: https://zapier.com/apps/whova/integrations
+        type: Integrations
+      - url: https://whova.com/blog/whova-integration-eventbrite-cvent-constant-contact-regfox-zapier/
+        type: Documentation
+      - url: https://whova.com/blog/registration-integrates-with-platform/
+        type: Documentation
 common:
-- type: DomainSecurity
-  url: security/whova-domain-security.yml
-- type: LinkedIn
-  url: https://www.linkedin.com/company/whova
-- type: Website
-  url: https://whova.com/
-- type: Documentation
-  url: https://whova.zendesk.com/hc/en-us
-- type: Integrations
-  url: https://zapier.com/apps/whova/integrations
-- type: Plans
-  url: plans/whova-plans-pricing.yml
-- url: https://whova.com/blog/
-  type: Blog
+  - type: DomainSecurity
+    url: security/whova-domain-security.yml
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/whova
+  - type: Website
+    url: https://whova.com/
+  - type: Documentation
+    url: https://whova.zendesk.com/hc/en-us
+  - type: Integrations
+    url: https://zapier.com/apps/whova/integrations
+  - type: Plans
+    url: plans/whova-plans-pricing.yml
+  - url: https://whova.com/blog/
+    type: Blog
+  - type: ProductPage
+    url: https://whova.com/blog/openreview-integration/
+  - type: ProductPage
+    url: https://whova.com/pages/whova-app-exhibitor-guide/
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
