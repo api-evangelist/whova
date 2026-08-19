@@ -44,7 +44,7 @@ tags:
   - Modeled
 created: '2026-07-05'
 modified: '2026-07-25'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: whova:whova-attendees-api
     name: Whova Attendees API (Modeled)
