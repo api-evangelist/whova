@@ -33,6 +33,16 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/whova.png
 tags:
+  - Event
+  - Event Management
+  - Event App
+  - Registration
+  - Conferences
+  - Attendees
+  - Exhibitors
+  - Gated API
+  - Modeled
+tags_raw:
   - Events
   - Event Management
   - Event App
@@ -77,6 +87,11 @@ apis:
   - aid: whova:whova-registration-api
     name: Whova Registration and Orders API (Modeled)
     tags:
+      - Registration
+      - Order
+      - Ticketing
+      - Modeled
+    tags_raw:
       - Registration
       - Orders
       - Ticketing
